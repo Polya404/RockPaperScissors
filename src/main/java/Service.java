@@ -8,6 +8,10 @@ public class Service {
     private int numberOfGames;
     private static Scanner in = new Scanner(System.in);
 
+    public User getUser() {
+        return user;
+    }
+
     public Service() {
         user = new User();
         computer = new Computer();
@@ -34,11 +38,11 @@ public class Service {
                 System.out.println("Ничья");
                 break;
             case 1:
-                System.out.println(userMove + " beats " + computerMove + " You win");
+                System.out.println(userMove + " beats " + computerMove + " win -> " + user.getName());
                 userScore++;
                 break;
             case -1:
-                System.out.println(compareMoves + " beats " + userMove + " You loss");
+                System.out.println(compareMoves + " beats " + userMove + "  loss -> " + user.getName());
                 computerScore++;
                 break;
         }

@@ -1,7 +1,16 @@
 import java.util.Scanner;
 
 public class User implements Move {
+    private String name;
     private Scanner in;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public User() {
         in = new Scanner(System.in);
