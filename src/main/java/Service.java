@@ -1,3 +1,8 @@
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.util.Scanner;
 
 public class Service {
@@ -7,6 +12,9 @@ public class Service {
     private int computerScore;
     private int numberOfGames;
     private static Scanner in = new Scanner(System.in);
+    Path pathDir = Paths.get("E:\\Polya project\\JavaProject\\RockPaperScissors\\src\\main\\java");
+    String filename = "gameStatistic.txt";
+    Path path = Paths.get("E:\\Polya project\\JavaProject\\RockPaperScissors\\src\\main\\java\\gameStatistic.txt");
 
     public User getUser() {
         return user;
@@ -27,7 +35,7 @@ public class Service {
         return userInput.charAt(0) == 'y';
     }
 
-    public void game() {
+    public void game() throws IOException {
         RockPaperScissors userMove = user.getMove();
         RockPaperScissors computerMove = computer.getMove();
         System.out.println("Your choose " + userMove);
@@ -46,25 +54,43 @@ public class Service {
                 computerScore++;
                 break;
         }
+        if (Files.exists(path)) {
+            Files.write(path, String.valueOf("USER MOVE : " + userMove + "\n").getBytes(), StandardOpenOption.APPEND);
+            Files.write(path, String.valueOf("COMPUTER MOVE : " + computerMove + "\n").getBytes(), StandardOpenOption.APPEND);
+        } else {
+            FileWriter fileWriter = new FileWriter(new File(String.valueOf(pathDir), filename));
+            fileWriter.write(String.valueOf("USER MOVE : " + userMove + "\n"));
+            fileWriter.write(String.valueOf("COMPUTER MOVE : " + computerMove + "\n"));
+        }
         numberOfGames++;
-
     }
 
-    public void printGameStats() {
+    public void printGameStats() throws IOException {
         int wins = userScore;
         int losses = computerScore;
         int ties = numberOfGames - userScore - computerScore;
         double percentageWon = (wins + (double) ties / 2) / numberOfGames;
+        String info = ("NAMES : " + user.getName() + "\n" + "WINS : " + +wins + "\n" + "LOSSES : " + losses + "\n" + "TIES : " + ties + "\n" + "GAMES PLAYED : " + numberOfGames + "\n" + "PERCENTAGE WON : " + percentageWon * 100 + "\n" + "\n" + "\n" + "\n");
 
         printDashes(60);
         System.out.println("+");
 
-        System.out.printf("| %6s | %6s | %6s | %12s | %14s |\n", "WINS", "LOSSES", "TIES", "GAMES PLAYED", "PERCENTAGE WON");
+
+        if (Files.exists(path)) {
+            Files.write(path, info.getBytes(), StandardOpenOption.APPEND);
+        } else {
+            FileWriter fileWriter = new FileWriter(new File(String.valueOf(pathDir), filename));
+            fileWriter.write(info);
+            fileWriter.close();
+        }
+
+
+        System.out.printf("| %8s | %6s | %6s | %6s | %12s | %14s |\n", "NAMES", "WINS", "LOSSES", "TIES", "GAMES PLAYED", "PERCENTAGE WON");
 
         printDashes(60);
         System.out.println("+");
 
-        System.out.printf("| %6d | %6d | %6d | %12d | %13.2f%% | \n", wins, losses, ties, numberOfGames, percentageWon * 100);
+        System.out.printf("| %8s | %6d | %6d | %6d | %12d | %13.2f%% | \n", user.getName(), wins, losses, ties, numberOfGames, percentageWon * 100);
 
         printDashes(60);
         System.out.println("+");
