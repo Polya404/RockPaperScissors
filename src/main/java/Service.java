@@ -58,7 +58,9 @@ public class Service {
             Files.write(path, String.valueOf("USER MOVE : " + userMove + "\n").getBytes(), StandardOpenOption.APPEND);
             Files.write(path, String.valueOf("COMPUTER MOVE : " + computerMove + "\n").getBytes(), StandardOpenOption.APPEND);
         } else {
-            FileWriter fileWriter = new FileWriter(new File(String.valueOf(pathDir), filename));
+            //FileWriter fileWriter = new FileWriter(new File(String.valueOf(pathDir), filename));
+            File file = new File(String.valueOf(pathDir), File.separator.concat(filename));
+            FileWriter fileWriter = new FileWriter(file);
             fileWriter.write(String.valueOf("USER MOVE : " + userMove + "\n"));
             fileWriter.write(String.valueOf("COMPUTER MOVE : " + computerMove + "\n"));
         }
@@ -79,7 +81,9 @@ public class Service {
         if (Files.exists(path)) {
             Files.write(path, info.getBytes(), StandardOpenOption.APPEND);
         } else {
-            FileWriter fileWriter = new FileWriter(new File(String.valueOf(pathDir), filename));
+            //FileWriter fileWriter = new FileWriter(new File(String.valueOf(pathDir), filename));
+            File file = new File(String.valueOf(pathDir), File.separator.concat(filename));
+            FileWriter fileWriter = new FileWriter(file);
             fileWriter.write(info);
             fileWriter.close();
         }
