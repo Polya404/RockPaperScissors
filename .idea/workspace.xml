@@ -5,9 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="621e098f-8b44-47f3-9a04-c463397537e3" name="Changes" comment="Commit">
+      <change afterPath="$PROJECT_DIR$/gameStatistic.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Service.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gameStatistic.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gameStatistic.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gameStatistic.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +32,13 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="$USER_HOME$/Downloads/apache-maven-3.8.6-bin/apache-maven-3.8.6" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
   <component name="ProjectId" id="2C888KikWBRXmCQx5cPwKzOcpQl" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -51,10 +60,10 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.build" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
@@ -132,7 +141,8 @@
       <workItem from="1658172695390" duration="17129000" />
       <workItem from="1658419940236" duration="3503000" />
       <workItem from="1658427104475" duration="11737000" />
-      <workItem from="1658648043959" duration="1004000" />
+      <workItem from="1658648043959" duration="1326000" />
+      <workItem from="1658733461645" duration="6548000" />
     </task>
     <task id="LOCAL-00001" summary="Commit">
       <created>1658236548389</created>
@@ -155,7 +165,21 @@
       <option name="project" value="LOCAL" />
       <updated>1658496530613</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Commit">
+      <created>1658649125258</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1658649125258</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Commit">
+      <created>1658649150913</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1658649150913</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -175,6 +199,17 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Commit" />
     <option name="LAST_COMMIT_MESSAGE" value="Commit" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Service.java</url>
+          <line>58</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

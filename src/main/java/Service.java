@@ -12,9 +12,10 @@ public class Service {
     private int computerScore;
     private int numberOfGames;
     private static Scanner in = new Scanner(System.in);
-    Path pathDir = Paths.get("E:\\Polya project\\JavaProject\\RockPaperScissors\\src\\main\\java");
+
+    Path pathDir = Paths.get("src\\main\\java");
     String filename = "gameStatistic.txt";
-    Path path = Paths.get("E:\\Polya project\\JavaProject\\RockPaperScissors\\src\\main\\java\\gameStatistic.txt");
+    String s = pathDir.toAbsolutePath().toString();
 
     public User getUser() {
         return user;
@@ -54,12 +55,12 @@ public class Service {
                 computerScore++;
                 break;
         }
-        if (Files.exists(path)) {
-            Files.write(path, String.valueOf("USER MOVE : " + userMove + "\n").getBytes(), StandardOpenOption.APPEND);
-            Files.write(path, String.valueOf("COMPUTER MOVE : " + computerMove + "\n").getBytes(), StandardOpenOption.APPEND);
+
+        if (Files.exists(Path.of(s + File.separator.concat(filename)))) {
+            Files.write(Path.of(s + File.separator.concat(filename)), String.valueOf("USER MOVE : " + userMove + "\n").getBytes(), StandardOpenOption.APPEND);
+            Files.write(Path.of(s + File.separator.concat(filename)), String.valueOf("COMPUTER MOVE : " + computerMove + "\n").getBytes(), StandardOpenOption.APPEND);
         } else {
-            //FileWriter fileWriter = new FileWriter(new File(String.valueOf(pathDir), filename));
-            File file = new File(String.valueOf(pathDir), File.separator.concat(filename));
+            File file = new File(s, File.separator.concat(filename));
             FileWriter fileWriter = new FileWriter(file);
             fileWriter.write(String.valueOf("USER MOVE : " + userMove + "\n"));
             fileWriter.write(String.valueOf("COMPUTER MOVE : " + computerMove + "\n"));
@@ -78,10 +79,9 @@ public class Service {
         System.out.println("+");
 
 
-        if (Files.exists(path)) {
-            Files.write(path, info.getBytes(), StandardOpenOption.APPEND);
+        if (Files.exists(Path.of(s + File.separator.concat(filename)))) {
+            Files.write(Path.of(s + File.separator.concat(filename)), info.getBytes(), StandardOpenOption.APPEND);
         } else {
-            //FileWriter fileWriter = new FileWriter(new File(String.valueOf(pathDir), filename));
             File file = new File(String.valueOf(pathDir), File.separator.concat(filename));
             FileWriter fileWriter = new FileWriter(file);
             fileWriter.write(info);
