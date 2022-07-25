@@ -1,8 +1,11 @@
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Service {
@@ -12,10 +15,8 @@ public class Service {
     private int computerScore;
     private int numberOfGames;
     private static Scanner in = new Scanner(System.in);
+    private static List<String> info = new ArrayList<>();
 
-    Path pathDir = Paths.get("src\\main\\java");
-    String filename = "gameStatistic.txt";
-    String s = pathDir.toAbsolutePath().toString();
 
     public User getUser() {
         return user;
@@ -43,27 +44,20 @@ public class Service {
         System.out.println("Computer " + computerMove);
         int compareMoves = userMove.compareMoves(computerMove);
         switch (compareMoves) {
-            case 0:
-                System.out.println("Ничья");
-                break;
-            case 1:
+            case 0 -> {
+                info.add("USER MOVE : " + userMove + " " + "COMPUTER MOVE : " + computerMove + " -> TIES" + "\n");
+                System.out.println("Ties");
+            }
+            case 1 -> {
+                info.add(userMove + " beats " + computerMove + " win -> " + user.getName() + "\n");
                 System.out.println(userMove + " beats " + computerMove + " win -> " + user.getName());
                 userScore++;
-                break;
-            case -1:
-                System.out.println(compareMoves + " beats " + userMove + "  loss -> " + user.getName());
+            }
+            case -1 -> {
+                info.add(computerMove + " beats " + userMove + "  loss -> " + user.getName() + "\n");
+                System.out.println(computerMove + " beats " + userMove + "  loss -> " + user.getName());
                 computerScore++;
-                break;
-        }
-
-        if (Files.exists(Path.of(s + File.separator.concat(filename)))) {
-            Files.write(Path.of(s + File.separator.concat(filename)), String.valueOf("USER MOVE : " + userMove + "\n").getBytes(), StandardOpenOption.APPEND);
-            Files.write(Path.of(s + File.separator.concat(filename)), String.valueOf("COMPUTER MOVE : " + computerMove + "\n").getBytes(), StandardOpenOption.APPEND);
-        } else {
-            File file = new File(s, File.separator.concat(filename));
-            FileWriter fileWriter = new FileWriter(file);
-            fileWriter.write(String.valueOf("USER MOVE : " + userMove + "\n"));
-            fileWriter.write(String.valueOf("COMPUTER MOVE : " + computerMove + "\n"));
+            }
         }
         numberOfGames++;
     }
@@ -73,20 +67,10 @@ public class Service {
         int losses = computerScore;
         int ties = numberOfGames - userScore - computerScore;
         double percentageWon = (wins + (double) ties / 2) / numberOfGames;
-        String info = ("NAMES : " + user.getName() + "\n" + "WINS : " + +wins + "\n" + "LOSSES : " + losses + "\n" + "TIES : " + ties + "\n" + "GAMES PLAYED : " + numberOfGames + "\n" + "PERCENTAGE WON : " + percentageWon * 100 + "\n" + "\n" + "\n" + "\n");
+        info.add("NAMES : " + user.getName() + "\n" + "WINS : " + wins + "\n" + "LOSSES : " + losses + "\n" + "TIES : " + ties + "\n" + "GAMES PLAYED : " + numberOfGames + "\n" + "PERCENTAGE WON : " + percentageWon * 100 + "\n" + "\n" + "\n" + "\n");
 
         printDashes(60);
         System.out.println("+");
-
-
-        if (Files.exists(Path.of(s + File.separator.concat(filename)))) {
-            Files.write(Path.of(s + File.separator.concat(filename)), info.getBytes(), StandardOpenOption.APPEND);
-        } else {
-            File file = new File(String.valueOf(pathDir), File.separator.concat(filename));
-            FileWriter fileWriter = new FileWriter(file);
-            fileWriter.write(info);
-            fileWriter.close();
-        }
 
 
         System.out.printf("| %8s | %6s | %6s | %6s | %12s | %14s |\n", "NAMES", "WINS", "LOSSES", "TIES", "GAMES PLAYED", "PERCENTAGE WON");
@@ -104,6 +88,25 @@ public class Service {
         for (int i = 0; i < numberOfDashes; i++) {
             System.out.print("-");
         }
+    }
+
+    public void writeFile() throws IOException {
+        Path pathDir = Paths.get("target");
+        String filename = "gameStatistic.log";
+        String s = pathDir.toAbsolutePath().toString();
+        File file = new File(s, File.separator.concat(filename));
+
+        if (file.exists()) {
+            for (String str : info) {
+                Files.write(Path.of(s + File.separator.concat(filename)), str.getBytes(), StandardOpenOption.APPEND);
+            }
+        } else {
+            file.createNewFile();
+            for (String str : info) {
+                Files.write(Path.of(s + File.separator.concat(filename)), str.getBytes(), StandardOpenOption.APPEND);
+            }
+        }
+
     }
 
 }

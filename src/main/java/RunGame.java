@@ -25,5 +25,6 @@ public class RunGame {
             number--;
         } while (number != 0 && Service.playAgain());
         game.printGameStats();
+        game.writeFile();
     }
 }
