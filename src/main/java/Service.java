@@ -1,9 +1,6 @@
 import java.io.*;
 import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.nio.file.StandardOpenOption;
+import java.nio.file.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -91,7 +88,7 @@ public class Service {
     }
 
     public void writeFile() throws IOException {
-        Path pathDir = Paths.get("target");
+        Path pathDir = FileSystems.getDefault().getPath("").toAbsolutePath();
         String filename = "gameStatistic.log";
         String s = pathDir.toAbsolutePath().toString();
         File file = new File(s, File.separator.concat(filename));
