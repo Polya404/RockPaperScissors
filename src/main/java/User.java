@@ -1,6 +1,11 @@
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.Scanner;
 
 public class User implements Move {
+    private static final Logger loggerDebug = LoggerFactory.getLogger("logger.debug");
+    private static final Logger loggerResult = LoggerFactory.getLogger("logger.result");
     private String name;
     private Scanner in;
 
@@ -29,6 +34,7 @@ public class User implements Move {
                 case 'r' : return RockPaperScissors.ROCK;
             }
         }
+        loggerDebug.debug("Неверное значение хода");
         return getMove();
     }
 

@@ -1,9 +1,13 @@
+import org.slf4j.LoggerFactory;
+
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class Service {
     private User user;
@@ -13,6 +17,9 @@ public class Service {
     private int numberOfGames;
     private static Scanner in = new Scanner(System.in);
     private static List<String> info = new ArrayList<>();
+
+    private static final Logger loggerDebug = LoggerFactory.getLogger("logger.debug");
+    private static final Logger loggerResult = LoggerFactory.getLogger("logger.result");
 
 
     public User getUser() {
@@ -35,6 +42,9 @@ public class Service {
     }
 
     public void game() throws IOException {
+        loggerResult.debug("===============================================");
+        loggerResult.debug("Игра началась");
+        loggerResult.debug("Игровая статистика для игрока : " + user.getName());
         RockPaperScissors userMove = user.getMove();
         RockPaperScissors computerMove = computer.getMove();
         System.out.println("Your choose " + userMove);
@@ -44,15 +54,21 @@ public class Service {
             case 0 -> {
                 info.add("USER MOVE : " + userMove + " " + "COMPUTER MOVE : " + computerMove + " -> TIES" + "\n");
                 System.out.println("Ties");
+                loggerResult.debug("Ход игрока : " + userMove);
+                loggerResult.debug("Ход компьютера : " + computerMove);
             }
             case 1 -> {
                 info.add(userMove + " beats " + computerMove + " win -> " + user.getName() + "\n");
                 System.out.println(userMove + " beats " + computerMove + " win -> " + user.getName());
+                loggerResult.debug("Ход игрока : " + userMove);
+                loggerResult.debug("Ход компьютера : " + computerMove);
                 userScore++;
             }
             case -1 -> {
                 info.add(computerMove + " beats " + userMove + "  loss -> " + user.getName() + "\n");
                 System.out.println(computerMove + " beats " + userMove + "  loss -> " + user.getName());
+                loggerResult.debug("Ход игрока : " + userMove);
+                loggerResult.debug("Ход компьютера : " + computerMove);
                 computerScore++;
             }
         }
@@ -65,6 +81,10 @@ public class Service {
         int ties = numberOfGames - userScore - computerScore;
         double percentageWon = (wins + (double) ties / 2) / numberOfGames;
         info.add("NAMES : " + user.getName() + "\n" + "WINS : " + wins + "\n" + "LOSSES : " + losses + "\n" + "TIES : " + ties + "\n" + "GAMES PLAYED : " + numberOfGames + "\n" + "PERCENTAGE WON : " + percentageWon * 100 + "\n" + "\n" + "\n" + "\n");
+        loggerResult.debug("Выиграно : " + wins);
+        loggerResult.debug("Проиграно : " + losses);
+        loggerResult.debug("Ничьи : " + ties);
+        loggerResult.debug("Процент побед : " + percentageWon * 100);
 
         printDashes(60);
         System.out.println("+");
