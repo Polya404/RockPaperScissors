@@ -5,7 +5,9 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ResourceBundle;
 import java.util.Scanner;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -17,6 +19,7 @@ public class Service {
     private int numberOfGames;
     private static Scanner in = new Scanner(System.in);
     private static List<String> info = new ArrayList<>();
+    static ResourceBundle resourceBundle = ResourceBundle.getBundle("communicationWithPlayer", RunGame.locale);
 
     private static final Logger loggerDebug = LoggerFactory.getLogger("logger.debug");
     private static final Logger loggerResult = LoggerFactory.getLogger("logger.result");
@@ -35,40 +38,42 @@ public class Service {
     }
 
     public static boolean playAgain() {
-        System.out.println("Do you want play again ? ... y/n");
+        System.out.println(resourceBundle.getString("playAgain")); //playAgain
         String userInput = in.nextLine();
         userInput = userInput.toLowerCase();
-        return userInput.charAt(0) == 'y';
+        return userInput.equals(resourceBundle.getString("yes"));//yes
     }
 
     public void game() throws IOException {
         loggerResult.debug("===============================================");
-        loggerResult.debug("Игра началась");
-        loggerResult.debug("Игровая статистика для игрока : " + user.getName());
+        loggerResult.debug("Start game");
+        loggerResult.debug("Game statistic for gamer : " + user.getName());
         RockPaperScissors userMove = user.getMove();
         RockPaperScissors computerMove = computer.getMove();
-        System.out.println("Your choose " + userMove);
-        System.out.println("Computer " + computerMove);
+
+        System.out.println(resourceBundle.getString("choose") + " " + resourceBundle.getString(userMove.toString())); //choose
+        System.out.println(resourceBundle.getString("computer") + " " + resourceBundle.getString(computerMove.toString())); //computer
+
         int compareMoves = userMove.compareMoves(computerMove);
         switch (compareMoves) {
             case 0 -> {
                 info.add("USER MOVE : " + userMove + " " + "COMPUTER MOVE : " + computerMove + " -> TIES" + "\n");
-                System.out.println("Ties");
-                loggerResult.debug("Ход игрока : " + userMove);
-                loggerResult.debug("Ход компьютера : " + computerMove);
+                System.out.println(resourceBundle.getString("ties")); //ties
+                loggerResult.debug("User move : " + userMove);
+                loggerResult.debug("Computer move : " + computerMove);
             }
             case 1 -> {
                 info.add(userMove + " beats " + computerMove + " win -> " + user.getName() + "\n");
-                System.out.println(userMove + " beats " + computerMove + " win -> " + user.getName());
-                loggerResult.debug("Ход игрока : " + userMove);
-                loggerResult.debug("Ход компьютера : " + computerMove);
+                System.out.println(resourceBundle.getString(userMove.toString()) + " " + resourceBundle.getString("beats") + " " + resourceBundle.getString(computerMove.toString()) + " " + resourceBundle.getString("win") + " -> " + user.getName()); //beats, win
+                loggerResult.debug("User move : " + userMove);
+                loggerResult.debug("Computer move : " + computerMove);
                 userScore++;
             }
             case -1 -> {
                 info.add(computerMove + " beats " + userMove + "  loss -> " + user.getName() + "\n");
-                System.out.println(computerMove + " beats " + userMove + "  loss -> " + user.getName());
-                loggerResult.debug("Ход игрока : " + userMove);
-                loggerResult.debug("Ход компьютера : " + computerMove);
+                System.out.println(resourceBundle.getString(computerMove.toString()) + " " + resourceBundle.getString("beats") + " " + resourceBundle.getString(userMove.toString()) + " " + resourceBundle.getString("loss") + " -> " + user.getName()); //beats, loss
+                loggerResult.debug("User move : " + userMove);
+                loggerResult.debug("Computer move : " + computerMove);
                 computerScore++;
             }
         }
@@ -81,10 +86,10 @@ public class Service {
         int ties = numberOfGames - userScore - computerScore;
         double percentageWon = (wins + (double) ties / 2) / numberOfGames;
         info.add("NAMES : " + user.getName() + "\n" + "WINS : " + wins + "\n" + "LOSSES : " + losses + "\n" + "TIES : " + ties + "\n" + "GAMES PLAYED : " + numberOfGames + "\n" + "PERCENTAGE WON : " + percentageWon * 100 + "\n" + "\n" + "\n" + "\n");
-        loggerResult.debug("Выиграно : " + wins);
-        loggerResult.debug("Проиграно : " + losses);
-        loggerResult.debug("Ничьи : " + ties);
-        loggerResult.debug("Процент побед : " + percentageWon * 100);
+        loggerResult.debug("Wins : " + wins);
+        loggerResult.debug("Losses : " + losses);
+        loggerResult.debug("Ties : " + ties);
+        loggerResult.debug("Percent wins : " + percentageWon * 100);
 
         printDashes(60);
         System.out.println("+");

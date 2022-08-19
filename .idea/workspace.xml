@@ -5,9 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="621e098f-8b44-47f3-9a04-c463397537e3" name="Changes" comment="Commit">
-      <change afterPath="$PROJECT_DIR$/gameStatistic.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/resourceBundles.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/communicationWithPlayer.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/communicationWithPlayer_DE.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/communicationWithPlayer_EN.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/communicationWithPlayer_UA.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.RockPaperScissors/result.log" beforeDir="false" afterPath="$PROJECT_DIR$/.RockPaperScissors/result.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameStatistic.log" beforeDir="false" afterPath="$PROJECT_DIR$/gameStatistic.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/RunGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RunGame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Service.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/User.java" afterDir="false" />
@@ -30,6 +36,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GithubDefaultAccount">
+    <option name="defaultAccountId" value="f02619ef-3759-42a7-879e-976a7cd14cc9" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -51,6 +60,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit3" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit3" value="junit.framework.TestCase" />
@@ -64,7 +74,7 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+    <property name="settings.editor.selected.configurable" value="File.Encoding" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -82,14 +92,15 @@
     </key>
   </component>
   <component name="RunManager" selected="Application.RunGame">
-    <configuration name="RunGame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="RunGame" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="RunGame" />
       <module name="RockPaperScissors" />
+      <option name="PROGRAM_PARAMETERS" value="EN" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RockPaperScissorsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="RockPaperScissorsTest" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
       <module name="RockPaperScissors" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="RockPaperScissorsTest" />
@@ -127,13 +138,18 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.RunGame" />
+      <item itemvalue="JUnit.RockPaperScissorsTest" />
+      <item itemvalue="JUnit.ServiceTest" />
+      <item itemvalue="JUnit.ServiceTest.testPlayAgain" />
+      <item itemvalue="JUnit.UserTest.testGetMove" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.RunGame" />
         <item itemvalue="JUnit.UserTest.testGetMove" />
         <item itemvalue="JUnit.ServiceTest" />
         <item itemvalue="JUnit.ServiceTest.testPlayAgain" />
-        <item itemvalue="JUnit.RockPaperScissorsTest" />
       </list>
     </recent_temporary>
   </component>
@@ -157,7 +173,10 @@
       <workItem from="1658865000792" duration="594000" />
       <workItem from="1659731036756" duration="614000" />
       <workItem from="1660234006226" duration="4141000" />
-      <workItem from="1660288172595" duration="331000" />
+      <workItem from="1660288172595" duration="1169000" />
+      <workItem from="1660744587390" duration="624000" />
+      <workItem from="1660759540946" duration="81000" />
+      <workItem from="1660838763664" duration="10131000" />
     </task>
     <task id="LOCAL-00001" summary="Commit">
       <created>1658236548389</created>
@@ -215,7 +234,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658822955552</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Commit">
+      <created>1660288637649</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1660288637649</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -235,6 +261,17 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Commit" />
     <option name="LAST_COMMIT_MESSAGE" value="Commit" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Service.java</url>
+          <line>53</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

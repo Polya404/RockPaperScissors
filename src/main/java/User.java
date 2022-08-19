@@ -1,6 +1,7 @@
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.ResourceBundle;
 import java.util.Scanner;
 
 public class User implements Move {
@@ -8,6 +9,7 @@ public class User implements Move {
     private static final Logger loggerResult = LoggerFactory.getLogger("logger.result");
     private String name;
     private Scanner in;
+    ResourceBundle resourceBundle = ResourceBundle.getBundle("communicationWithPlayer", RunGame.locale);
 
     public String getName() {
         return name;
@@ -23,18 +25,20 @@ public class User implements Move {
 
     @Override
     public RockPaperScissors getMove() {
-        System.out.println("What do you choose: paper, scissors or rock ?");
+        System.out.println(resourceBundle.getString("move")); // move
         String userInput = in.nextLine();
         userInput = userInput.toLowerCase();
-        char firstLetter = userInput.charAt(0);
-        if(firstLetter == 'p' || firstLetter == 's' || firstLetter == 'r'){
-            switch (firstLetter){
-                case 'p': return RockPaperScissors.PAPER;
-                case 's' : return RockPaperScissors.SCISSORS;
-                case 'r' : return RockPaperScissors.ROCK;
+        String firstLetter = userInput;
+        if(firstLetter.equals(resourceBundle.getString("paper")) || firstLetter.equals(resourceBundle.getString("scissors")) || firstLetter.equals(resourceBundle.getString("rock"))){ // paper, scissors, rock
+            if (firstLetter.equals(resourceBundle.getString("paper"))){
+                return RockPaperScissors.PAPER;
+            }else if (firstLetter.equals(resourceBundle.getString("scissors"))){
+                return RockPaperScissors.SCISSORS;
+            }else if(firstLetter.equals(resourceBundle.getString("rock"))){
+                return RockPaperScissors.ROCK;
             }
         }
-        loggerDebug.debug("Неверное значение хода");
+        loggerDebug.debug("Invalid data move");
         return getMove();
     }
 
