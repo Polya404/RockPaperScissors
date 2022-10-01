@@ -5,15 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="621e098f-8b44-47f3-9a04-c463397537e3" name="Changes" comment="Commit">
-      <change afterPath="$PROJECT_DIR$/.idea/resourceBundles.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/communicationWithPlayer.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/communicationWithPlayer_DE.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/communicationWithPlayer_EN.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/communicationWithPlayer_UA.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.RockPaperScissors/result.log" beforeDir="false" afterPath="$PROJECT_DIR$/.RockPaperScissors/result.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.RockPaperScissors/result.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameStatistic.log" beforeDir="false" afterPath="$PROJECT_DIR$/gameStatistic.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameStatistic.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Computer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Computer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/RockPaperScissors.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RockPaperScissors.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/RunGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RunGame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Service.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/User.java" afterDir="false" />
@@ -60,7 +58,6 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit3" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit3" value="junit.framework.TestCase" />
@@ -95,7 +92,6 @@
     <configuration name="RunGame" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="RunGame" />
       <module name="RockPaperScissors" />
-      <option name="PROGRAM_PARAMETERS" value="EN" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -176,7 +172,11 @@
       <workItem from="1660288172595" duration="1169000" />
       <workItem from="1660744587390" duration="624000" />
       <workItem from="1660759540946" duration="81000" />
-      <workItem from="1660838763664" duration="10131000" />
+      <workItem from="1660838763664" duration="12910000" />
+      <workItem from="1662278224460" duration="527000" />
+      <workItem from="1662754273976" duration="52000" />
+      <workItem from="1664441619731" duration="3495000" />
+      <workItem from="1664616027781" duration="1298000" />
     </task>
     <task id="LOCAL-00001" summary="Commit">
       <created>1658236548389</created>
@@ -241,7 +241,14 @@
       <option name="project" value="LOCAL" />
       <updated>1660288637649</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Commit">
+      <created>1660911344203</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1660911344203</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -261,17 +268,6 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Commit" />
     <option name="LAST_COMMIT_MESSAGE" value="Commit" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Service.java</url>
-          <line>53</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

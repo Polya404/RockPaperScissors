@@ -3,6 +3,7 @@ import java.util.InputMismatchException;
 import java.util.Locale;
 import java.util.ResourceBundle;
 import java.util.Scanner;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -11,34 +12,33 @@ public class RunGame {
     protected static int number = 0;
     static Locale locale;
 
-    private static final Logger loggerDebug = LoggerFactory.getLogger("logger.debug");
     private static final Logger loggerResult = LoggerFactory.getLogger("logger.result");
 
     public static void main(String[] args) throws IOException {
-        if (args.length==0){
+        if (args.length == 0) {
             locale = new Locale("UA");
-        }else {
+        } else {
             locale = new Locale(args[0]);
         }
         ResourceBundle resourceBundle = ResourceBundle.getBundle("communicationWithPlayer", locale);
         Service game = new Service();
-        System.out.println(resourceBundle.getString("enter")); //enter
+        System.out.println(resourceBundle.getString("enter"));
         game.getUser().setName(in.nextLine());
         int num = 0;
         try {
-            System.out.println(resourceBundle.getString("howManyTime")); //howManyTime
+            System.out.println(resourceBundle.getString("howManyTime"));
             number = in.nextInt();
             num = number;
             loggerResult.debug("How many game choose gamer : " + number);
         } catch (InputMismatchException e) {
-            System.out.println(resourceBundle.getString("amountGame")); //amountGame
+            System.out.println(resourceBundle.getString("amountGame"));
             loggerResult.debug("Invalid number of games entered");
         }
         do {
             if (number == 0) {
                 break;
             }
-            System.out.println(resourceBundle.getString("run")); //run
+            System.out.println(resourceBundle.getString("run"));
             game.game();
             number--;
             loggerResult.debug("How many games are left : " + number);
